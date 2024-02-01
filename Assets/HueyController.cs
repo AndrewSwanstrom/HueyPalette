@@ -6,7 +6,6 @@ public class HueyController : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8.0f;
-    private float jumpingPower = 16.0f;
     private bool isFacingRight = false;
 
     Rigidbody2D rigidbody2d;
