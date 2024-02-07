@@ -19,6 +19,11 @@ public class HueyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // Add a physics material to the player's collider to reduce friction
+        PhysicsMaterial2D playerPhysicsMaterial = new PhysicsMaterial2D();
+        playerPhysicsMaterial.friction = 0f; // Set friction to 0 to reduce sticking
+        GetComponent<Collider2D>().sharedMaterial = playerPhysicsMaterial;
     }
 
     // Update is called once per frame
