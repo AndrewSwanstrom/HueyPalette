@@ -20237,17 +20237,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Huey
       objectReference: {fileID: 0}
-    - target: {fileID: 3901676556037386582, guid: cd2e15db22cea2c48be20bc44e4b3c96, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2e15db22cea2c48be20bc44e4b3c96, type: 3}
---- !u!95 &3901676556568335607 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2872457834142742738, guid: cd2e15db22cea2c48be20bc44e4b3c96, type: 3}
-  m_PrefabInstance: {fileID: 3901676556568335606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4337443057164341011
 PrefabInstance:
   m_ObjectHideFlags: 0

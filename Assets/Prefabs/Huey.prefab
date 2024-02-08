@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2872457834142742738}
   m_Layer: 0
   m_Name: Huey
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   jumpForce: 15
   immunityDuration: 2
   knockbackForce: 5
+  animator: {fileID: 2872457834142742738}
 --- !u!95 &2872457834142742738
 Animator:
   serializedVersion: 5
