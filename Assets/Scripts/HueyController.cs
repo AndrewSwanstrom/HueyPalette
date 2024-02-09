@@ -16,14 +16,20 @@ public class HueyController : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
 
+
+    //Audio
+    public AudioSource jumpSound;
+    public AudioSource damageSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Add a physics material to the player's collider to reduce friction
+        //Friction code
         PhysicsMaterial2D playerPhysicsMaterial = new PhysicsMaterial2D();
-        playerPhysicsMaterial.friction = 0f; // Set friction to 0 to reduce sticking
+        playerPhysicsMaterial.friction = 0f; // Set friction to 0
         GetComponent<Collider2D>().sharedMaterial = playerPhysicsMaterial;
     }
 
@@ -48,6 +54,10 @@ public class HueyController : MonoBehaviour
         {
             Debug.Log("Jumping");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (jumpSound != null)
+            {
+                jumpSound.Play();
+            }
         }
 
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
@@ -67,6 +77,10 @@ public class HueyController : MonoBehaviour
 
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            if (damageSound != null)
+            {
+                damageSound.Play();
+            }
 
             StartImmunityCooldown();
         }
