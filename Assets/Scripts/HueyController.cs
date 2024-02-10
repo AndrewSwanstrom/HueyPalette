@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HueyController : MonoBehaviour
 {
-    public float attackDamage = 10f;
+    public int attackDamage = 10;
     public LayerMask groundLayer;
     public int health = 3;
     public float moveSpeed = 5.0f;
@@ -15,6 +15,9 @@ public class HueyController : MonoBehaviour
     private bool isImmune = false;
     private Rigidbody2D rb;
     public Animator animator;
+    public Transform attackPoint;
+    public LayerMask enemyLayer;
+    public float attackRange = 0.30f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,18 +58,42 @@ public class HueyController : MonoBehaviour
         //Attack
         if (Input.GetKeyDown(KeyCode.S))
         {
-            // Implement attack logic here
+            // Detect enemies in the attack range
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+            // Deal damage to detected enemies
+            foreach (Collider2D enemy in hitEnemies)
+            {
+            // You can customize this part based on your game's logic
+            // For example, you might have an Enemy script with a TakeDamage method
+            // enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                Destroy(enemy.gameObject);
+                Debug.Log("Dealing damage to: " + enemy.name);
+            }
+        }
+
+
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.collider.CompareTag("Enemy") && !isImmune)
+        if (other.CompareTag("Enemy") && !isImmune || other.CompareTag("Projectile") && !isImmune)
         {
             TakeDamage();
 
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
+
+            // Move the player back based on knockback direction
+            //transform.position += new Vector3(knockbackDirection.x, knockbackDirection.y, 0f) * knockbackForce;
 
             StartImmunityCooldown();
         }
