@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8555937928145834927}
   - component: {fileID: 2112091876871169803}
   - component: {fileID: 513269587}
-  m_Layer: 0
-  m_Name: Sponge_Enemy
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: SpongeEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 1190910731, guid: 380c9e54aeb69d747bf9a5004a250d92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0015604496, y: -0.16044152}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  moveDistance: 3
+  moveDistance: 2.5
   waitTime: 1
 --- !u!95 &513269587
 Animator:

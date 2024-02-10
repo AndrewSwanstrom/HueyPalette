@@ -19,7 +19,6 @@ public class HueyController : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRange = 0.30f;
 
-
     //Audio
     public AudioSource jumpSound;
     public AudioSource damageSound;
@@ -70,6 +69,7 @@ public class HueyController : MonoBehaviour
         {
             // Detect enemies in the attack range
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            animator.SetBool("IsAttacking", true);
 
             // Deal damage to detected enemies
             foreach (Collider2D enemy in hitEnemies)
@@ -82,7 +82,13 @@ public class HueyController : MonoBehaviour
             }
         }
 
+        if (animator.GetBool("IsAttacking")){
+            Invoke("ResetAttackAnim", 0.34f);
+        }
+    }
 
+    void ResetAttackAnim(){
+        animator.SetBool("IsAttacking", false);
     }
 
     void OnDrawGizmosSelected()
@@ -100,8 +106,8 @@ public class HueyController : MonoBehaviour
         {
             TakeDamage();
 
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            //Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            //rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             if (damageSound != null)
             {
                 damageSound.Play();

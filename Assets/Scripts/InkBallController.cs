@@ -5,6 +5,7 @@ using UnityEngine;
 public class InkBallController : MonoBehaviour
 {
     public float jumpForce2 = 5f;
+    public float secondsBetweenJumps = 2f;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class InkBallController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, -jumpForce2);
 
             // Wait for 5 seconds before repeating
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(secondsBetweenJumps);
         }
     }
 }
