@@ -1069,10 +1069,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AboutPage
       objectReference: {fileID: 0}
-    - target: {fileID: 2396280929955903940, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2396280929955903947, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1117,58 +1113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904540, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 99b8af0c76f78ca4fbbe3a1a42bfb235, type: 3}
-    - target: {fileID: 2396280930301904540, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_RaycastPadding.w
-      value: 11.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904540, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_RaycastPadding.x
-      value: 71
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904540, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_RaycastPadding.y
-      value: 12.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904540, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_RaycastPadding.z
-      value: 67.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2396280930301904541, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1453982023}
-    - target: {fileID: 2396280930301904542, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.270382
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904542, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 11.375241
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904542, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 11.375241
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904542, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 828
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904542, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 825
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930301904543, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396280930593521894, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4b225e0ce499c29468f4987a4431d127, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c800312ed0ae78746b75dc774187da1a, type: 3}
 --- !u!1001 &7928994177571805155
@@ -1330,10 +1278,6 @@ PrefabInstance:
     - target: {fileID: 8127016088836847849, guid: 54d81dcf82227a04683cecaebcc2525f, type: 3}
       propertyPath: m_Name
       value: OptionsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127016088836847849, guid: 54d81dcf82227a04683cecaebcc2525f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8127016088909050128, guid: 54d81dcf82227a04683cecaebcc2525f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

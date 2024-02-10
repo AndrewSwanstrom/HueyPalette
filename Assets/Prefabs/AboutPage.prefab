@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2396280929955903940}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -530, y: -448.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -61,7 +61,7 @@ RectTransform:
   m_GameObject: {fileID: 2396280930301904543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0283171, y: 3.576755, z: 3.576755}
+  m_LocalScale: {x: 3.270382, y: 11.375241, z: 11.375241}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2396280929955903947}
@@ -69,7 +69,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 833, y: 827}
+  m_AnchoredPosition: {x: 828, y: 825}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2396280930301904515
@@ -95,12 +95,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 71, y: 12.2, z: 67.5, w: 11.2}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33a474e8d6759d14e91cad866ad472a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99b8af0c76f78ca4fbbe3a1a42bfb235, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
