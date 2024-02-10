@@ -14,6 +14,7 @@ public class HueyController : MonoBehaviour
     private bool isGrounded;
     private bool isImmune = false;
     private Rigidbody2D rb;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,16 @@ public class HueyController : MonoBehaviour
         //Movement
         float horizontalInput = Input.GetAxis("Horizontal");
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+
+        if (animator.GetBool("IsRight") == true){
+            animator.SetBool("IsRight", (horizontalInput >= 0));
+        } else if (animator.GetBool("IsRight") == false){
+            animator.SetBool("IsRight", (horizontalInput > 0));
+        }
+
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.9f, groundLayer);
+        animator.SetBool("IsJumping", !isGrounded);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded || Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
