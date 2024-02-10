@@ -15,17 +15,15 @@ public class FireballController : MonoBehaviour
         InvokeRepeating("ShootProjectile", 0f, shootingInterval);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void ShootProjectile()
     {
-        GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, Quaternion.identity);
+        // Instantiate the projectile at the enemy's face
+        GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, shootingPoint.rotation);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-        projectileRb.velocity = Vector2.left * projectileSpeed;
+
+        projectileRb.velocity = projectile.transform.right * projectileSpeed;
+
+        // Destroy the projectile after a certain lifetime
         Destroy(projectile, projectileLifetime);
     }
 }
