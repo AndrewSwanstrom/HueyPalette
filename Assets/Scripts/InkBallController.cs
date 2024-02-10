@@ -8,20 +8,30 @@ public class InkBallController : MonoBehaviour
 
     void Start()
     {
-        // Start repeating the MoveEnemy function every 20 seconds
-        InvokeRepeating("MoveEnemy", 2f, 5f);
+        // Start the MoveEnemy coroutine
+        StartCoroutine(MoveEnemy());
     }
 
     void Update()
     {
-        
+        // Add any additional update logic if needed
     }
 
-    void MoveEnemy()
+    System.Collections.IEnumerator MoveEnemy()
     {
-        // Move the enemy up
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce2, ForceMode2D.Impulse);
+        while (true)
+        {
+            // Move the enemy up
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpForce2);
+
+            // Wait for 2 seconds
+            yield return new WaitForSeconds(2f);
+
+            // Move the enemy down
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, -jumpForce2);
+
+            // Wait for 5 seconds before repeating
+            yield return new WaitForSeconds(5f);
+        }
     }
-
 }
-
