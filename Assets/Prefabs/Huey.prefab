@@ -159,6 +159,7 @@ MonoBehaviour:
   knockbackForce: 5
   animator: {fileID: 2872457834142742738}
   jumpSound: {fileID: 3167849873420281443}
+  damageSound: {fileID: 0}
 --- !u!95 &2872457834142742738
 Animator:
   serializedVersion: 5
@@ -190,9 +191,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 88431c603e526f147b62b828c087059d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72d4e8f960546d34eb87dcc2441058c7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
