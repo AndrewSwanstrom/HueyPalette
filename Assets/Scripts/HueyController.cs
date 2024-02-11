@@ -23,7 +23,6 @@ public class HueyController : MonoBehaviour
     public RuntimeAnimatorController BlueAnimatorController;
     public RuntimeAnimatorController RedAnimatorController;
     public RuntimeAnimatorController YellowAnimatorController;
-    public Animator animatorBox;
     public Transform attackPoint;
     public LayerMask enemyLayer;
     public float attackRange = 0.30f;
@@ -147,12 +146,6 @@ public class HueyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {   
-
-        if(other.CompareTag("Box")) {
-            Debug.Log("break");
-            animatorBox.SetBool("IsBroken", true);
-            Destroy(other.gameObject);
-        }
 
         if (other.CompareTag("Enemy") && !isImmune || other.CompareTag("Projectile") && !isImmune)
         {
