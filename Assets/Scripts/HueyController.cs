@@ -32,6 +32,7 @@ public class HueyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Collider2D playerCollider = GetComponent<Collider2D>();
 
         //Friction code
         PhysicsMaterial2D playerPhysicsMaterial = new PhysicsMaterial2D();
@@ -104,6 +105,7 @@ public class HueyController : MonoBehaviour
             jumpForce = powerUpJumpForce;
             Debug.Log("Yellow");
         }
+        
 
     }
 
@@ -121,7 +123,13 @@ public class HueyController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
+
+        if(other.CompareTag("Box")) {
+            Debug.Log("break");
+            Destroy(other.gameObject);
+        }
+
         if (other.CompareTag("Enemy") && !isImmune || other.CompareTag("Projectile") && !isImmune)
         {
             TakeDamage();
