@@ -8,8 +8,10 @@ public class HueyController : MonoBehaviour
     public LayerMask groundLayer;
     public int health = 3;
     public float moveSpeed = 5.0f;
+    public float baseMoveSpeed = 0.0f;
     public float powerUpMoveSpeed = 10.0f;
     public float jumpForce = 10.0f;
+    public float baseJumpForce = 0.0f;
     public float powerUpJumpForce = 12.0f;
     public float immunityDuration = 2f;
     public float knockbackForce = 5f;
@@ -18,16 +20,17 @@ public class HueyController : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject lastHitEnemy;
     public Animator animator;
-<<<<<<< HEAD
     public RuntimeAnimatorController BlueAnimatorController;
     public RuntimeAnimatorController RedAnimatorController;
     public RuntimeAnimatorController YellowAnimatorController;
-=======
->>>>>>> parent of eeb49b4 (Final changes from me)
+    public Animator animatorBox;
     public Transform attackPoint;
     public LayerMask enemyLayer;
     public float attackRange = 0.30f;
+    public float baseAttackRange = 0.0f;
     public float powerUpattackRange = 0.50f;
+
+    public ParticleSystem HurtEffect;
 
     //Audio
     public AudioSource jumpSound;
@@ -39,6 +42,11 @@ public class HueyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Collider2D playerCollider = GetComponent<Collider2D>();
+
+        //set variables to their base values
+        baseAttackRange = attackRange;
+        baseJumpForce = jumpForce;
+        baseMoveSpeed = moveSpeed;
 
         //Friction code
         PhysicsMaterial2D playerPhysicsMaterial = new PhysicsMaterial2D();
@@ -76,7 +84,7 @@ public class HueyController : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
         //Attack
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             // Detect enemies in the attack range
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
@@ -99,16 +107,25 @@ public class HueyController : MonoBehaviour
         if(lastHitEnemy != null && lastHitEnemy.name == "SpongeEnemy")
         {
             moveSpeed = powerUpMoveSpeed;
+            jumpForce = baseJumpForce;
+            attackRange = baseAttackRange;
+            animator.runtimeAnimatorController = BlueAnimatorController;
             Debug.Log("Blue");
         }
         else if(lastHitEnemy != null && lastHitEnemy.name == "SprayCanEnemy")
         {
             attackRange = powerUpattackRange;
+            moveSpeed = baseMoveSpeed;
+            jumpForce = baseJumpForce;
+            animator.runtimeAnimatorController = RedAnimatorController;
             Debug.Log("Red");
         }
         else if(lastHitEnemy != null && lastHitEnemy.name == "InkBallEnemy")
         {
             jumpForce = powerUpJumpForce;
+            moveSpeed = baseMoveSpeed;
+            attackRange = baseAttackRange;
+            animator.runtimeAnimatorController = YellowAnimatorController;
             Debug.Log("Yellow");
         }
         
@@ -131,14 +148,12 @@ public class HueyController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {   
 
-<<<<<<< HEAD
-=======
         if(other.CompareTag("Box")) {
             Debug.Log("break");
+            animatorBox.SetBool("IsBroken", true);
             Destroy(other.gameObject);
         }
 
->>>>>>> parent of eeb49b4 (Final changes from me)
         if (other.CompareTag("Enemy") && !isImmune || other.CompareTag("Projectile") && !isImmune)
         {
             TakeDamage();
@@ -148,6 +163,8 @@ public class HueyController : MonoBehaviour
             if (damageSound != null)
             {
                 damageSound.Play();
+                HurtEffect.Play();
+                Invoke("HurtEffectStop", 1.0f);
             }
 
             StartImmunityCooldown();
@@ -158,6 +175,10 @@ public class HueyController : MonoBehaviour
     {
         health--;
         Debug.Log("Health: " + health);
+    }
+
+    void HurtEffectStop(){
+        HurtEffect.Stop();
     }
 
     void StartImmunityCooldown()
