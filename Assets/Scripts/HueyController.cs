@@ -8,7 +8,9 @@ public class HueyController : MonoBehaviour
     public LayerMask groundLayer;
     public int health = 3;
     public float moveSpeed = 5.0f;
+    public float powerUpMoveSpeed = 10.0f;
     public float jumpForce = 10.0f;
+    public float powerUpJumpForce = 12.0f;
     public float immunityDuration = 2f;
     public float knockbackForce = 5f;
     private bool isGrounded;
@@ -19,6 +21,7 @@ public class HueyController : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayer;
     public float attackRange = 0.30f;
+    public float powerUpattackRange = 0.50f;
 
     //Audio
     public AudioSource jumpSound;
@@ -88,14 +91,17 @@ public class HueyController : MonoBehaviour
         //Color Switch
         if(lastHitEnemy != null && lastHitEnemy.name == "SpongeEnemy")
         {
+            moveSpeed = powerUpMoveSpeed;
             Debug.Log("Blue");
         }
         else if(lastHitEnemy != null && lastHitEnemy.name == "SprayCanEnemy")
         {
+            attackRange = powerUpattackRange;
             Debug.Log("Red");
         }
         else if(lastHitEnemy != null && lastHitEnemy.name == "InkBallEnemy")
         {
+            jumpForce = powerUpJumpForce;
             Debug.Log("Yellow");
         }
 
