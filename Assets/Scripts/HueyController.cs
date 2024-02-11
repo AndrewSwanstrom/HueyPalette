@@ -14,6 +14,7 @@ public class HueyController : MonoBehaviour
     private bool isGrounded;
     private bool isImmune = false;
     private Rigidbody2D rb;
+    private GameObject lastHitEnemy;
     public Animator animator;
     public Transform attackPoint;
     public LayerMask enemyLayer;
@@ -74,9 +75,7 @@ public class HueyController : MonoBehaviour
             // Deal damage to detected enemies
             foreach (Collider2D enemy in hitEnemies)
             {
-            // You can customize this part based on your game's logic
-            // For example, you might have an Enemy script with a TakeDamage method
-            // enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                lastHitEnemy = enemy.gameObject;
                 Destroy(enemy.gameObject);
                 Debug.Log("Dealing damage to: " + enemy.name);
             }
@@ -85,6 +84,21 @@ public class HueyController : MonoBehaviour
         if (animator.GetBool("IsAttacking")){
             Invoke("ResetAttackAnim", 0.34f);
         }
+
+        //Color Switch
+        if(lastHitEnemy != null && lastHitEnemy.name == "SpongeEnemy")
+        {
+            Debug.Log("Blue");
+        }
+        else if(lastHitEnemy != null && lastHitEnemy.name == "SprayCanEnemy")
+        {
+            Debug.Log("Red");
+        }
+        else if(lastHitEnemy != null && lastHitEnemy.name == "InkBallEnemy")
+        {
+            Debug.Log("Yellow");
+        }
+
     }
 
     void ResetAttackAnim(){

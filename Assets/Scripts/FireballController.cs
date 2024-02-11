@@ -5,10 +5,13 @@ using UnityEngine;
 public class FireballController : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public GameObject sprayPrefab;
     public Transform shootingPoint;
+    public Transform sprayPoint;
     public float shootingInterval = 5f;
     public float projectileSpeed = 5f;
     public float projectileLifetime = 6f;
+    public float sprayLifetime = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class FireballController : MonoBehaviour
     void ShootProjectile()
     {
         // Instantiate the projectile at the enemy's face
+        GameObject spray = Instantiate(sprayPrefab, sprayPoint.position, sprayPoint.rotation);
         GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, shootingPoint.rotation);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
 
@@ -25,5 +29,6 @@ public class FireballController : MonoBehaviour
 
         // Destroy the projectile after a certain lifetime
         Destroy(projectile, projectileLifetime);
+        Destroy(spray, sprayLifetime);
     }
 }

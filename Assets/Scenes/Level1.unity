@@ -17664,6 +17664,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081992527}
     m_Modifications:
+    - target: {fileID: 975943069260409150, guid: 3140f58d57aa11544a36c0ce1a0f07ce, type: 3}
+      propertyPath: sprayLifetime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4790836962882809889, guid: 3140f58d57aa11544a36c0ce1a0f07ce, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -18133,6 +18137,10 @@ PrefabInstance:
     - target: {fileID: 8173005517174490545, guid: 37801cbe0a8dfe247b8c6328a376d0d0, type: 3}
       propertyPath: m_Name
       value: SpongeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173005517174490545, guid: 37801cbe0a8dfe247b8c6328a376d0d0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37801cbe0a8dfe247b8c6328a376d0d0, type: 3}
