@@ -31,7 +31,7 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator PlayGameCoroutine()
     {
-        fade.FadeIn();
+        //fade.FadeIn();
         yield return new WaitForSeconds(1); // Wait for the fade to complete
         SceneManager.LoadScene(1);
     }

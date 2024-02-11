@@ -8,9 +8,9 @@ public class NextLevel : MonoBehaviour
     Fader fade;
     void Start()
     {
-        fade = FindObjectOfType<Fader>();
+        //fade = FindObjectOfType<Fader>();
 
-        fade.FadeOut();
+        //fade.FadeOut();
     }
     private void OnTriggerEnter2D(Collider2D collision)
 
@@ -34,7 +34,7 @@ public class NextLevel : MonoBehaviour
     }
     private IEnumerator NextLevelCoroutine()
     {
-        fade.FadeIn();
+        //fade.FadeIn();
         yield return new WaitForSeconds(1); // Wait for the fade to complete
         SceneManager.LoadScene(2);
     }

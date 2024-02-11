@@ -170,7 +170,7 @@ MonoBehaviour:
   shootingInterval: 5
   projectileSpeed: 5
   projectileLifetime: 6
-  sprayLifetime: 0.75
+  sprayLifetime: 0.5
 --- !u!95 &7431685529090290408
 Animator:
   serializedVersion: 5
